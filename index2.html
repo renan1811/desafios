@@ -20,12 +20,13 @@
     \n Calcular faturamento (F)`).toUpperCase();
     switch (acao) {
         case "L":
-
+            listarQuartosDisponiveis()
         break;
         case "R":
-
+            reservarQuarto()
         break;
         case "C":
+            let perguntaC = Number(prompt(`Qual o numero do quarto que voce deseja cancelar`))
 
         break;
         case "F":
@@ -38,7 +39,41 @@
 
     function listarQuartosDisponiveis() {
     let quartosLivres = quartos.filter(quarto => quarto.disponivel === true);
-    
+    if (quartosLivres.length > 0) {
+        quartosLivres.forEach(quarto => {
+            alert(`Quarto disponível: Número ${quarto.numero}, Tipo: ${quarto.tipo}, Preço: R$${quarto.preco}`);
+        });
+    } else {
+        alert("Não há quartos disponíveis no momento.");
+    }
 }
 
+function reservarQuarto() {
+    let numero = prompt("Digite o número do quarto que deseja reservar:");
+    let quarto = quartos.find(q => q.numero == numero);
+
+    if (quarto && quarto.disponivel) {
+        let perguntaR = prompt(`Quarto disponível: Número ${quarto.numero}, Tipo: ${quarto.tipo}, Preço: R$${quarto.preco}.\nVocê deseja pegar este quarto? (S ou N)`);
+        if (perguntaR === "S") {
+            quarto.disponivel = false;
+            alert(`Quarto ${quarto.numero} reservado com sucesso!`);
+        } else {
+            alert('Reserva cancelada.');
+        }
+    } else if (quarto) {
+        alert("Este quarto já está reservado.");
+    } else {
+        alert("Quarto não encontrado.");
+    }
+}
+
+
+function cancelarReserva(cance) {
+    for (let i = 0; i < estoque.length; i++) {
+            if (estoque[i].numero === cance) {
+                let cancelado = estoque[i].disponivel === false
+            }
+        }
+    return `O quarto ${perguntaC} foi cancelado`
+}
 </script>
