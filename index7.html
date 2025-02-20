@@ -1,0 +1,22 @@
+<script>
+    //Problema: Par ou Ímpar
+    /* 
+    Criar uma função parOuImpar(numero) que exibe se o número é par ou ímpar, que será informado pelo usuário.
+    */
+    
+    const parOuImpar = (numero) => {
+        if (numero % 2 === 0) {
+            alert(`${numero} é Par.`);
+        } else {
+            alert(`${numero} é Ímpar.`);
+        }
+    };
+
+    const numero = parseInt(prompt("Digite um número:"));
+    
+    if (!isNaN(numero)) {
+        parOuImpar(numero);
+    } else {
+        alert("Por favor, insira um número válido.");
+    }
+</script>
