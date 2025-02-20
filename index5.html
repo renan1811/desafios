@@ -1,0 +1,60 @@
+<script>
+    let listaCompras = ["Arroz", "Feijão", "Leite"];
+
+    /*
+    1. Criar uma função adicionarItem(item) que adiciona um novo item à lista.
+    2. Criar uma função removerItem(item) que remove um item da lista se ele existir.
+    3. Criar uma função listarItens() que exibe todos os itens da lista.
+    4. Criar um loop(while) para permitir ao usuário interagir com as opções até escolher sair.
+    */
+
+    function adicionarItem(item) {
+        if (item.trim() !== "") {
+            listaCompras.push(item);
+            alert(`${item} adicionado à lista.`);
+        } else {
+            alert("Por favor, insira um item válido.");
+        }
+    }
+
+    function removerItem(item) {
+        const index = listaCompras.indexOf(item);
+        if (index !== -1) {
+            listaCompras.splice(index, 1);
+            alert(`${item} removido da lista.`);
+        } else {
+            alert(`${item} não encontrado na lista.`);
+        }
+    }
+
+    function listarItens() {
+        if (listaCompras.length > 0) {
+            let itens = "Lista de Compras:\n";
+            listaCompras.forEach(item => itens += `- ${item}\n`);
+            alert(itens);
+        } else {
+            alert("A lista está vazia.");
+        }
+    }
+
+    let continuar = true;
+    while (continuar) {
+        let opcao = prompt("Escolha uma opção: \n1. Adicionar item \n2. Remover item \n3. Listar itens \n4. Sair");
+
+        switch (opcao) {
+            case '1':
+                let itemAdicionar = prompt("Digite o item a ser adicionado:");
+                adicionarItem(itemAdicionar);
+                break;
+            case '2':
+                let itemRemover = prompt("Digite o item a ser removido:");
+                removerItem(itemRemover);
+                break;
+            case '3':
+                listarItens();
+                break;
+            default:
+                alert("Opção inválida. Tente novamente.");
+        }
+    }
+</script>
