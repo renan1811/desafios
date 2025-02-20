@@ -1,0 +1,24 @@
+<script>
+    //Problema: Contagem Regressiva
+    /* 
+    Criar uma função contagemRegressiva(numero) que exibe uma contagem regressiva a partir do número, que será informado pelo usuário.
+    */
+
+    const contagemRegressiva = (numero) => {
+        if (numero <= 0) {
+            alert("A contagem terminou");
+            return;
+        }
+        
+        alert(numero); 
+        contagemRegressiva(numero - 1); 
+    };
+
+    const numeroInicial = parseInt(prompt("Digite um número para iniciar a contagem regressiva"));
+    
+    if (!isNaN(numeroInicial) && numeroInicial > 0) {
+        contagemRegressiva(numeroInicial);  
+    } else {
+        alert("Por favor, insira um número válido maior que 0");
+    }
+</script>
